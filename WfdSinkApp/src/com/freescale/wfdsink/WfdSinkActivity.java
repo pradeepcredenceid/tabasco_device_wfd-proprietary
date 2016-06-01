@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Freescale Semiconductor, Inc.
+ * Copyright (C) 2014-2015 Freescale Semiconductor, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -419,6 +419,13 @@ public class WfdSinkActivity extends Activity implements SurfaceHolder.Callback
         mSurfaceView.setVisibility(View.INVISIBLE);
         mGridView.setVisibility(View.VISIBLE);
         mStarted = false;
+        disconnectPeer();
+        mConnected = false;
+        startSearch();
+        //Technically use onRestart on app layer will help to
+        //improve the connection success rate due it will
+        //release the Framework p2p resource totally.
+        //onRestart();
     }
 
     private void requestAudio() {

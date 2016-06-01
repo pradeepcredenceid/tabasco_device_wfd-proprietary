@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 Freescale Semiconductor, Inc.
+ * Copyright (C) 2013-2015 Freescale Semiconductor, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,9 +55,9 @@ public class SinkView extends SurfaceView {
     @Override
     protected void onMeasure(int widthSpec, int heightSpec) {
 
-        Log.d(TAG, "onMeasure " + "mVideoW " + mVideoWidth + "mVideoH " +
-                mVideoHeight + "widthMeasureSpec " + widthSpec +
-                "heightMeasureSpec " + heightSpec);
+        Log.d(TAG, "onMeasure:" + " mVideoW " + mVideoWidth + ", mVideoH " +
+                mVideoHeight + ", widthMeasureSpec " + widthSpec +
+                ", heightMeasureSpec " + heightSpec);
         if(mVideoWidth == 0 || mVideoHeight == 0) { // no video now
             setMeasuredDimension(1, 1);
             return;
