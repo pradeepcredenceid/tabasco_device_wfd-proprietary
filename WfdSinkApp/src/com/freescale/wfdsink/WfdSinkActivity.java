@@ -124,6 +124,10 @@ public class WfdSinkActivity extends Activity implements SurfaceHolder.Callback
                     mSourcePeers.add(device.deviceName);
                 }
 
+		if (devs.length > 0) {
+		        mWfdSink.setMiracastMode(WifiP2pManager.MIRACAST_SINK);
+		}
+
                 mPictureAdapter.setSourcePeers(mSourcePeers);
                 mHandler.sendEmptyMessage(UPDATE_GRID_VIEW);
                 mGridView.postInvalidate();
@@ -360,6 +364,7 @@ public class WfdSinkActivity extends Activity implements SurfaceHolder.Callback
                 case START_SEARCH:
                     mWfdSink.startSearch();
                     mHandler.sendEmptyMessageDelayed(START_SEARCH,DELAY);
+                    mWfdSink.setMiracastMode(WifiP2pManager.MIRACAST_SINK);
                     break;
             }
         }
